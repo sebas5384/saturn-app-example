@@ -1,0 +1,22 @@
+type User {
+  slug: String!
+  name: String!
+}
+
+type Post {
+  id: ID!
+  title: String!
+  body: String
+  author: User
+  coverImage: String
+  link: String
+  created: String
+}
+
+type RootQuery {
+  getPosts(userSlug: String!, numPages: Int): [Post]
+}
+
+schema {
+  query: RootQuery
+}
