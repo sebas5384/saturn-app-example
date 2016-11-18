@@ -2,7 +2,7 @@ import { getPostsByUserSlug } from './connectors'
 
 const resolverMap = {
   RootQuery: {
-    getPosts(root, args, context) {
+    posts(root, args, context) {
       const { userSlug } = args
       return getPostsByUserSlug(userSlug)
         .then(posts => posts.map(post => ({

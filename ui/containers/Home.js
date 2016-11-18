@@ -6,7 +6,7 @@ import Home from '../components/Home'
 
 const HomeQuery = gql`
   query PostsBySlug($slug: String!) {
-    getPosts(userSlug: $slug) {
+    posts(userSlug: $slug) {
       id
       link
       created
@@ -22,11 +22,11 @@ const HomeQuery = gql`
 
 export default graphql(HomeQuery, {
   options: {
-    forceFetch: true,
-    variables: { slug: 'mariana-graf' }
+    variables: { slug: 'mariana-graf' },
+    // ssr: false
   },
-  props: ({ data: { loading, getPosts, refetch } }) => ({
-    loading, posts: getPosts,
+  props: ({ data: { loading, posts, refetch } }) => ({
+    loading, posts,
     refetchPosts: slug => refetch({ slug })
   }),
 })(Home);

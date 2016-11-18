@@ -14,7 +14,7 @@ type Post {
 }
 
 type RootQuery {
-  getPosts(userSlug: String!, numPages: Int): [Post]
+  posts(userSlug: String!, numPages: Int): [Post]
 }
 
 schema {

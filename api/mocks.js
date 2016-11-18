@@ -12,6 +12,6 @@ export default {
     body: casual.sentences(10),
   }),
   RootQuery: () => ({
-    getPosts: (o, { numPages=1 }) => new MockList(numPages * 5)
+    posts: (o, { numPages=1 }) => new MockList(numPages * 5)
   })
 }
